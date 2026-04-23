@@ -80,7 +80,7 @@ export default function Hero() {
                   if (phone.length >= 10) {
                     setSubmitted(true);
                     const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210';
-                    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(`Hi, I'm Dr. calling from +91${phone}. I'd like to set up DrCliniq for my clinic.`)}`, '_blank');
+                    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(`Hi, I'd like to set up DrCliniq for my clinic. My number is +91${phone}.`)}`, '_blank');
                   }
                 }}
                 className="mb-4"
