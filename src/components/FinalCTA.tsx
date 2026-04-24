@@ -27,9 +27,9 @@ export default function FinalCTA() {
           <span className="live-dot" /> One last thing
         </div>
 
-        <h2 className="serif mb-6" style={{ fontSize: 'var(--fs-h1)', lineHeight: 1.05 }}>
+        <h2 className="mb-6" style={{ fontSize: 'var(--fs-h1)', fontWeight: 500, letterSpacing: '-0.03em', lineHeight: 1.05 }}>
           You won&apos;t redesign WhatsApp.<br />
-          <em className="italic" style={{ color: 'var(--accent)' }}>You can teach it medicine.</em>
+          <span style={{ color: 'var(--accent)' }}>You can teach it medicine.</span>
         </h2>
 
         <p className="mx-auto mb-10" style={{ fontSize: 17, color: 'oklch(0.75 0.01 95)', maxWidth: 540 }}>
@@ -38,14 +38,7 @@ export default function FinalCTA() {
 
         {!done ? (
           <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (phone.length >= 10) {
-                setDone(true);
-                const waNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210';
-                window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(`Hi, I'd like to set up DrCliniq for my clinic. My number is +91${phone}.`)}`, '_blank');
-              }
-            }}
+            onSubmit={(e) => { e.preventDefault(); if (phone.length >= 10) setDone(true); }}
             className="flex flex-col sm:flex-row max-w-lg mx-auto gap-3 sm:gap-0"
           >
             <div
@@ -57,7 +50,7 @@ export default function FinalCTA() {
               }}
             >
               <div
-                className="flex items-center mono"
+                className="flex items-center mono shrink-0"
                 style={{ padding: '0 16px', color: 'oklch(0.7 0.02 95)', fontSize: 13, borderRight: '1px solid oklch(0.32 0.012 250)' }}
               >
                 🇮🇳 +91
@@ -65,9 +58,10 @@ export default function FinalCTA() {
               <input
                 type="tel"
                 value={phone}
+                aria-label="Enter your phone number"
                 onChange={(e) => setPhone(e.target.value.replace(/\D/g, '').slice(0, 10))}
                 placeholder="98765 43210"
-                className="flex-1 border-none outline-none bg-transparent mono"
+                className="flex-1 border-none outline-none bg-transparent mono min-w-0"
                 style={{ padding: 14, fontSize: 15, color: 'var(--paper)', letterSpacing: '0.04em' }}
               />
             </div>
