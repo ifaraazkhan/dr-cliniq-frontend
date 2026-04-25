@@ -1,6 +1,7 @@
-// TODO: replace with the real DrCliniq WhatsApp business number
-// Format: country code + number, digits only, no '+' or spaces
-export const BUSINESS_WHATSAPP_NUMBER = '919999999999';
+// Set NEXT_PUBLIC_WHATSAPP_NUMBER in .env.local
+// Format: country code + number, digits only, no '+' or spaces (e.g. 919876543210)
+export const BUSINESS_WHATSAPP_NUMBER =
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210';
 
 export function buildWhatsAppUrl(userPhone: string): string {
   const cleaned = userPhone.replace(/\D/g, '').slice(0, 10);
